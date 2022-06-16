@@ -19,10 +19,17 @@ const Table = styled.table`
     }
 
     td div {
-        width: 30px;
-        height: 30px;
+        width: 40px;
+        height: 40px;
         margin: auto;
         border-radius: 50%;
+
+        text-align: center;
+    }
+
+    td div span {
+        font-size: 18px;
+        font-weight: bold;
     }
 `;
 
@@ -42,24 +49,28 @@ const SpotsTable = ({ sensorData }: SpotsTableProps) => {
         <Table>
             <tbody>
                 <tr>
-                    {firstSensorDataHalf.map((sensor) => (
+                    {firstSensorDataHalf.map((sensor, index) => (
                         <td key={uuid()}>
                             <div
                                 style={{
                                     backgroundColor: sensorData[sensor] ? 'red' : '#08cb33'
                                 }}
-                            />
+                            >
+                                <span>{`A${index + 1}`}</span>
+                            </div>
                         </td>
                     ))}
                 </tr>
                 <tr>
-                    {secondSensorDataHalf.map((sensor) => (
+                    {secondSensorDataHalf.map((sensor, index) => (
                         <td key={uuid()}>
                             <div
                                 style={{
                                     backgroundColor: sensorData[sensor] ? 'red' : '#08cb33'
                                 }}
-                            />
+                            >
+                                <span>{`B${index + 1}`}</span>
+                            </div>
                         </td>
                     ))}
                 </tr>
