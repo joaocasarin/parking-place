@@ -1,3 +1,4 @@
+from threading import Timer
 from time import sleep
 from flask import Flask
 from flask_socketio import SocketIO, emit
@@ -10,12 +11,15 @@ app.config['SECRET_KEY'] = 'secret!'
 socketIo = SocketIO(app, cors_allowed_origins="*")
 app.debug = True
 
-# arduino = serial.Serial('COM5', 9600, timeout=2)
+# arduino = serial.Serial('COM7', 9600)
 
 @socketIo.on('connect')
 def handleMessage():
+    
+    # this would be used to retrieve data from arduino
     # data = arduino.readline().decode().strip()
     
+    # simulates the data sent from arduino
     data = generateRandomSensorData()
     splittedData = data.split(';') # ['1', '1']
     sensor = splittedData[0]

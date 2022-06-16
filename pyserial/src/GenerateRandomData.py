@@ -9,4 +9,4 @@ def generateRandomSensorData():
     # '2;1' is the sensor 2 with available space
     # '1;0' is the sensor 1 with no available space
     # '2;0' is the sensor 2 with no available space
-    return f'{randint(1,2)};{randint(0,1)}'
+    return f'{randint(1,10)};{randint(0,1)}'
